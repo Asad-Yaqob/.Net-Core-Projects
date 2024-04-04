@@ -1,0 +1,48 @@
+﻿@model TrainSchedule
+@{
+    Layout = "_ClientLayout";
+}
+
+<h2>BOOK YOUR TRAIN TICKET</h2>
+<hr id="main-hr" />
+
+<form method="post" asp-controller="SearchTrains" asp-action="SearchTrains">
+    <div class="row ">
+        <div class="col-6">
+
+            <div class="form-group">
+                <label asp-for="Frome"></label>
+                <select class="form-control" name="From" asp-for="Frome">
+                    <option value="">Starting Destination</option>
+                    @foreach (var item in ViewBag.stationName)
+                    {
+                        <option value="@item">@item</option>
+                    }
+                </select>
+                <span asp-validation-for="Frome"></span>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-group">
+                <label asp-for="To"></label>
+                <select class="form-control" asp-for="To" name="To">
+                    <option value="">Ending Destination</option>
+                    @foreach (var item in ViewBag.stationName)
+                    {
+                        <option value="@item">@item</option>
+                    }
+                </select>
+                <span asp-validation-for="To"></span>
+            </div>
+
+        </div>
+        <div class="col-12">
+            <div class="form-group">
+                <label asp-for="Date"></label>
+                <input name="Date" class="form-control" asp-for="Date" id="date" type="date" />
+                <span asp-validation-for="Date"></span>
+            </div>
+            <button class="btn btn-success mt-3" type="submit">Book Ticket</button>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,201 @@
+﻿@model List<PassengerDetail>
+@{
+    ViewData["Title"] = "Home Page";
+
+@inject MyDbContext db;
+ //index page information about admins,users,tickets and more.
+    var totalAdmin = db.Registers.Where(x => x.UserRole.ToLower() == "admin").Count();
+    var totalUser = db.Registers.Where(x => x.UserRole.ToLower() == "user").Count();
+
+    var fineAmount = db.CancelTickets.Sum(x => x.CancelationFine);
+    var sale = db.PassengerDetails.Sum(x => x.Bil);
+    var totalSale = sale + fineAmount;
+    var refundAmount = db.CancelTickets.Sum(x => x.Bil);
+
+    var cancelTickets = db.CancelTickets.Count();
+    var currentDate = DateTime.Today;
+
+    var currentSoldTickets = db.PassengerDetails.Where(x => x.DateOfTravel == currentDate).Count();
+    var UserInfo = db.Registers.Where(x => x.UserRole.ToLower() == "user").ToList().Take(5);
+
+}
+
+            <!-- Start app main Content -->
+<div class="section-header">
+    <h1>Dashboard</h1>
+</div>
+
+<div class="row mt-3">
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                            <div class="card card-statistic-1">
+                                <div class="card-icon bg-primary">
+                                    <i class="far fa-user"></i>
+                                </div>
+                                <div class="card-wrap">
+                                    <div class="card-header">
+                                        <h4>Total Admins</h4>
+                                    </div>
+                                    <div class="card-body">
+                                       @totalAdmin
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                         <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                             <div class="card card-statistic-1">
+                                         <div class="card-icon bg-primary">
+                                             <i class="far fa-user"></i>
+                                         </div>
+                                         <div class="card-wrap">
+                                             <div class="card-header">
+                                               <h4>Total Users</h4>
+                                             </div>
+                                             <div class="card-body">
+                                               @totalUser
+                                             </div>
+                                         </div>
+                                     </div>
+                                 </div>
+
+
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                            <div class="card card-statistic-1">
+                                <div class="card-icon bg-success">
+                                  <i class="far fa-solid fa-money-bill"></i>
+                                </div>
+                                <div class="card-wrap">
+                                    <div class="card-header">
+                                        <h4>Total Sale</h4>
+                                    </div>
+                                    <div class="card-body">
+                                           @totalSale rs
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                          <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                              <div class="card card-statistic-1">
+                                  <div class="card-icon bg-danger">
+                                      <i class="far fa-solid fa-ticket"></i>
+                                  </div>
+                                  <div class="card-wrap">
+                                      <div class="card-header">
+                                          <h4>No Of Ticket Sold Today</h4>
+                                      </div>
+                                      <div class="card-body">
+                                          @currentSoldTickets
+                                      </div>
+                                 </div>
+                              </div>
+                          </div>
+
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                            <div class="card card-statistic-1">
+                                <div class="card-icon bg-warning">
+                                    <i class="far fa-solid fa-money-bill"></i>
+                                </div>
+                                <div class="card-wrap">
+                                    <div class="card-header">
+                                        <h4>Refunded Amount Of Cancel Tickets</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        @refundAmount rs
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                            <div class="card card-statistic-1">
+                                <div class="card-icon bg-success">
+                                     <i class="far fa-solid fa-ticket"></i>
+                                </div>
+                                <div class="card-wrap">
+                                    <div class="card-header">
+                                        <h4>No Of Cancel Tickets</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        @cancelTickets
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+          </div>
+
+
+<h3>User Information</h3>
+<table class="table-responsive table table-striped mt-3">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone No</th>
+            <th>CNIC </th>
+            <th>Age</th>
+            <th>Gender</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var uF in UserInfo)
+        {
+            <tr>
+                <td>@uF.RegisterId</td>
+                <td>@uF.UserName</td>
+                <td>@uF.UserEmail</td>
+                <td>@uF.PhoneNo</td>
+                <td>@uF.CNIC</td>
+                <td>@uF.Age</td>
+                <td>@uF.Gender</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<h3>Today Booking Information</h3>
+@if (Model != null && Model.Any())
+{
+    <table class="table-responsive table table-striped mt-3">
+        <thead>
+            <tr>
+                <th>PNR No</th>
+                <th>Seat No</th>
+                <th>Coach No</th>
+                <th>Name</th>
+                <th>TrainName</th>
+                <th>Class</th>
+                <th>From</th>
+                <th>To</th>
+                <th>TotalPass</th>
+                <th>DOT</th>
+                <th>Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (PassengerDetail pD in Model)
+            {
+                <tr>
+                    <td>@pD.PNRNo</td>
+                    <td>@pD.SeatNo</td>
+                    <td>@pD.CoachNo</td>
+                    <td>@pD.Name</td>
+                    <td>@pD.TrainName</td>
+                    <td>@pD.Class</td>
+                    <td>@pD.From</td>
+                    <td>@pD.To</td>
+                    <td>@pD.TotalPassenger</td>
+                    <td>@pD.DateOfTravel.ToString("yyyy-MM-dd")</td>
+                    <td>@pD.Time.ToString("hh:mm:ss")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No Booking Today</p>
+}
+

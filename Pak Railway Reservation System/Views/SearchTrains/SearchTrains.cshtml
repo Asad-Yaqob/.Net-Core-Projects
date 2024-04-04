@@ -1,0 +1,97 @@
+﻿@model List<TrainSchedule>
+@{
+    ViewData["Title"] = "SearchTrains";
+    Layout = "~/Views/Shared/_ClientLayout.cshtml";
+}
+ <h2>BOOK YOUR TRAIN TICKET</h2>
+ <hr id="main-hr" />
+    @if (Model != null && Model.Any())
+    {
+        @foreach (var item in Model)
+        {
+        <form method="post" asp-action="ReserveSeat" id="myForm" onsubmit="return confirmReserveSeat()">
+                <div class="card mt-4">
+                    <div class="card-header bg-success text-white">
+                        <h3 class="text-white">@item.TrainName</h3>
+                        <input type="hidden" name="TrainName" value="@item.TrainName" />
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-4">
+                                <p><strong>From:</strong> @item.Frome</p>
+                                <input type="hidden" name="From" value="@item.Frome" />
+                            </div>
+                            <div class="col-4">
+                                <p><strong>To:</strong> @item.To</p>
+                                <input type="hidden" name="To" value="@item.To" />
+                            </div>
+                            <div class="col-2">
+                                <p><strong>Date:</strong> @item.Date.ToString("yyyy-MM-dd")</p>
+                                <input type="hidden" name="Date" value="@item.Date.ToString("yyyy-MM-dd")" />
+                            </div>
+                            <div class="col-2">
+                                <p><strong>Time:</strong> @item.Date.ToString("hh-mm-ss")</p>
+                                <input type="hidden" name="Time" value="@item.Date.ToString("hh-mm-ss")" />
+                            </div>
+                        </div>
+
+                        @foreach (var fare in ViewBag.Fare)
+                        {
+                            <div class="row mt-3">
+                                <div class="col-6">
+                                    <p><strong>Class:</strong> @fare.Class</p>
+                                    <input type="hidden" name="FareDetails[@fare.Class].Class" value="@fare.Class" />
+                                </div>
+                                <div class="col-6">
+                                    <p><strong>Fare:</strong> @fare.Fare</p>
+                                    <input type="hidden" name="FareDetails[@fare.Class].Fare" value="@fare.Fare" />
+                                </div>
+                            </div>
+                        }
+
+                        <div class="row mt-3">
+                            <div class="col-6">
+                                <label for="SelectedClass">Class:</label>
+                                <select  class="form-control" name="Class">
+                                   
+                                    @foreach (var Class in ViewBag.Fare)
+                                    {
+                                        <option value="@Class.Class">@Class.Class</option>
+                                    }
+                                </select>
+                            </div>
+
+                            <div class="col-6">
+                                <label for="NOP">Number of Passengers:</label>
+                                <input name="NOP" type="number" value="1" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="row mt-3">
+                            <div class="col-12">
+                            <button class="btn btn-success" >Reserve Seat</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        }
+
+    }
+    else
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Sorry! No train found for this route.</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+<script>
+    function confirmReserveSeat() {
+        var confirmMessage = "Are you sure you want to reserve this seat?";
+        return confirm(confirmMessage);
+    }
+</script>
+
+
+

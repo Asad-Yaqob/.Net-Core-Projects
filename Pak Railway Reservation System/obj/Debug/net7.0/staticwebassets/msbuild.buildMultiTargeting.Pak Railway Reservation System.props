@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Pak Railway Reservation System.props" />
+</Project>

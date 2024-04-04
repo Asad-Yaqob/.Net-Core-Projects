@@ -1,0 +1,187 @@
+﻿@{
+    @inject MyDbContext _Context;
+    ViewBag.stationName = _Context.Stations.Select(x => x.StationName);
+    ViewBag.trainName = _Context.TrainDetails.Select(x => x.TrainName).Distinct();
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - AuthenticationWithCookie</title>
+    <link rel="stylesheet" href="~/ClientLibs/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="~/ClientLibs/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/AuthenticationWithCookie.styles.css" asp-append-version="true" />
+</head>
+<body>
+<header>
+       @*  <nav id="navbar" class="navbar navbar-expand-sm navbar-toggleable-sm   border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="ClientHome" asp-action="Index"><img src="~/AdminLibs/Images/Pak Rrs.png" width="100px" height="100px" /></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                           <h1>Pakistan Railway <br /> Reservation System</h1>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav flex-grow-0 mt-5">
+                        @if (Context.Session.GetString("Email") == null)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-success"  asp-controller="ClientHome" asp-action="Login"><i class="fa-solid fa-arrow-right-from-bracket"></i> Sign In</a>
+                            </li>
+
+                            <li class="nav-item ">
+                                <a class="nav-link text-success" asp-controller="ClientHome" asp-action="Register"><i class="fa-solid fa-user"></i> Register</a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item ">
+                                <a class="nav-link text-success" asp-controller="Auth" asp-action="Logout"><i class="fa-solid fa-arrow-right-from-bracket"></i> &nbsp Log Out</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </nav> *@
+        <nav id="navbar" class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-success  border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="ClientHome" asp-action="Index"><img src="~/AdminLibs/Images/Untitled.png" width="50px" height="50px" /></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1 ms-5">
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-controller="SearchTrains" asp-action="Index"><i class="fa-solid fa-house"></i>  Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-controller="ClientHome" asp-action="BookTicket">Book Ticket</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-controller="ClientHome" asp-action="AboutUs">About Us</a>
+                        </li> 
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-controller="ClientHome" asp-action="Contact">Contact</a>
+                        </li>
+
+                    </ul>
+                     <ul class="navbar-nav flex-grow-0">
+                        @if (Context.Session.GetString("Email") == null)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-white" asp-area="" asp-controller="ClientHome" asp-action="Login"><i class="fa-solid fa-arrow-right-from-bracket"></i> Sign In</a>
+                            </li>
+
+                            <li class="nav-item ">
+                                <a class="nav-link text-white" asp-area="" asp-controller="ClientHome" asp-action="Register"><i class="fa-solid fa-user"></i> Register</a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item ">
+                                <a class="nav-link text-white" asp-area="" asp-controller="ClientHome" asp-action="Logout"><i class="fa-solid fa-arrow-right-from-bracket"></i> &nbsp Log Out</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+<div class="container mb-5 ">
+            <div class="row">
+                    <div class="col-lg-3 col-md-3 col-sm-12">
+                @if (Context.Session.GetString("Email") != null)
+                {
+                    //user info
+                        <aside>
+                            <div class="card">
+                                <div class="card-header bg-success text-white">
+                                    Welcome @Context.Session.GetString("UserName")
+                                </div>
+                                <div class="card-body">
+                                    <a class="link-success text-decoration-none" asp-action="MyProfile" asp-controller="Profile"><i class="fa-solid fa-user"></i> Profile</a>
+                                    <hr />
+                                    <a class="link-success text-decoration-none" asp-action="ChangePassword" asp-controller="Profile"><i class="fa-regular fa-pen-to-square"></i> Change Password</a>
+                                    <hr />
+                                    <a class="link-success text-decoration-none" asp-action="YourBooking" asp-controller="Profile"><i class="fa-solid fa-cart-shopping"></i> Your Bookings</a>
+                                    <hr />
+                                    <a class="link-success text-decoration-none" asp-action="CancelTicket" asp-controller="SearchTrains"><i class="fa-solid fa-x"></i> Cancel Ticket</a>
+                                    <hr />
+                                <a class="link-success text-decoration-none" asp-action="Logout" asp-controller="ClientHome"><i class="fa-solid fa-arrow-right-from-bracket"></i> Sign Out</a>
+                                </div>
+                            </div>
+                        </aside>
+                        }
+                    <h4 class="text-success mt-3">Calculate Fare</h4>
+                    <form method="post" asp-controller="ClientHome" asp-action="CalculateFare">
+                    <div class="form-group">
+                        <label class="form-label" for="trainName">Train Name</label>
+                        <select class="form-control" name="trainName" required>
+                            <option value="">Starting Destination</option>
+                            @foreach (var item in ViewBag.trainName)
+                            {
+                                <option value="@item">@item</option>
+                            }
+                        </select>
+                    </div>
+                        <div class="form-group">
+                            <label class="form-label" for="From">From</label>
+                            <select class="form-control" name="From" required>
+                                <option value="">Starting Destination</option>
+                                @foreach (var item in ViewBag.stationName)
+                                {
+                                    <option value="@item">@item</option>
+                                }
+                            </select>
+                        </div>
+                        <div class="form-group">
+                        <label class="form-label" for="To">To</label>
+                            <select class="form-control" name="To" required>
+                                <option value="">Ending Destination</option>
+                                @foreach (var item in ViewBag.stationName)
+                                {
+                                    <option value="@item">@item</option>
+                                }
+                            </select> 
+                        </div>
+                        <button class="btn btn-success mt-3" type="submit">Calculate Fare</button> 
+                    </form>
+                    </div>
+                
+            <div class="col-lg-9 col-md-9 col-sm-12 mt-3">
+                    <div class="container">
+                    @RenderBody()
+                    </div>
+            </div>
+                </div>
+            </div>
+
+<div class="contianer mt-5 fixed-bottom">
+    <footer class="border-top mt-5 footer bg-success text-light">
+        <div class="container d-flex">
+            &copy; 2024 - Pakistan Railway Reservation System
+            <div class="flex-grow-0 ms-auto">
+                    <a id="anchor" href="https://www.facebook.com/"><i class="fa-brands fa-facebook"></i></a>
+                    <a id="anchor" href="https://www.instagram.com/accounts/login/"><i class="fa-brands fa-instagram p-2"></i></a>
+                    <a id="anchor" href="https://twitter.com/?lang=en"><i class="fa-brands fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+    </div>
+
+ <script src="~/ClientLibs/js/dateValidation.js"></script>
+ <script src="~/ClientLibs/lib/jquery/dist/jquery.min.js"></script>
+ <script src="~/ClientLibs/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+ <script src="~/ClientLibs/js/site.js" asp-append-version="true"></script>
+ @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

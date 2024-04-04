@@ -1,0 +1,48 @@
+﻿@model IEnumerable<TrainFare>
+@{
+    ViewData["Title"] = "TrainFares";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="section-header">
+    <h1>Train Fares</h1>
+</div>
+@if (ViewBag.ErrMsg != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Error!</strong> @ViewBag.ErrMsg
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+<div class="section-body">
+    <table class="table-responsive table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>From</th>
+                <th>to</th>
+                <th>Class</th>
+                <th>Distance</th>
+                <th>Fare</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (TrainFare TF in Model)
+            {
+                <tr>
+                    <td>@TF.TrainFareId</td>
+                    <td>@TF.TrainName</td>
+                    <td>@TF.From</td>
+                    <td>@TF.To</td>
+                    <td>@TF.Class</td>
+                    <td>@TF.Distance</td>
+                    <td>@TF.Fare</td>
+                    <td><a asp-action="EditTrainFares" asp-route-id="@TF.TrainFareId"><i class="fa-solid fa-edit"></i></a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

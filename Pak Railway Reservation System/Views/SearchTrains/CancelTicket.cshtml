@@ -1,0 +1,74 @@
+﻿@model PassengerDetail
+@{
+    Layout = "_ClientLayout";
+}
+    @if (TempData["ErrMsg"] != null)
+    {
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>@TempData["ErrMsg"]!</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+    @if (ViewBag.ticketFound == null)
+    {
+        <div class="row mt-3">
+            <h2>CANCEL TICKET</h2>
+            <hr id="main-hr" />
+            <form method="post">
+                <div class="col-6">
+                    <div class="form-group mb-3">
+                        <label class="form-label">Please Enter PNR No</label>
+                        <input type="number" class="form-control" name="PNRNO" required />
+                    </div>
+                    <div class="form-group mb-3">
+                        <button type="submit" class="btn btn-success">Check For Your Ticket</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    }
+    else
+    {
+        <h2>CANCEL TICKET</h2>
+        <hr id="main-hr" />
+                <div class="card">
+        <div class="card-header bg-success text-white text-center ">
+                    <h4>Your Ticket Details</h4>
+                    </div>
+                    <div class="card-body">
+                <div class="row mt-3">
+                    <div class="col-6">
+                    <p><b>User Name</b> : <span>@Model.Name</span></p>
+                        <p><b>CNIC </b>: <span>@Model.CNIC</span></p>
+                        <p><b>Total Passengers</b> : <span>@Model.TotalPassenger</span></p>
+                        <p><b>PNR No </b>: <span>@Model.PNRNo</span></p>
+                        <p><b>Seat No </b>: <span>@Model.SeatNo</span></p>
+                        <p><b>Coach No</b> : <span>@Model.CoachNo</span></p>
+                    </div>
+                    <div class="col-6">
+                        <p><b>Date Of Travel </b>: <span>@Model.DateOfTravel.ToString("yyyy-mm-dd")</span></p>
+                        <p><b>Time </b>: <span>@Model.Time.ToString("hh:mm:ss")</span></p>
+                        <p><b>Class </b>: <span>@Model.Class</span></p>
+                        <p><b>Train Name</b> : <span>@Model.TrainName</span></p>
+                        <p><b>From </b> : <span>@Model.From</span></p>
+                        <p><b>To </b>: <span>@Model.To</span></p>
+                        <p><b>Bil </b>: <span>@Model.Bil</span></p>
+                    </div>
+                    <div class="">
+                        <button class="btn btn-danger" onclick="cancelTicket(@Model.PNRNo)">Cancel</button>
+                    </div>
+                    </div>
+                </div>
+          
+           
+        </div>
+    }
+
+    <script>
+        function cancelTicket(id) {
+            let con = confirm("Are you sure? Really want to cancel...");
+            if (con) {
+            location.assign("/SearchTrains/DeleteTicket/" + id);
+            }
+        }
+  </script>

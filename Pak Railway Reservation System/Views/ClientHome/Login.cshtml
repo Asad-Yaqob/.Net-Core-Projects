@@ -1,0 +1,40 @@
+﻿@model Register
+@{
+    Layout = "_ClientLayout";
+}
+<h2>LOGIN TO YOUR  PASSENGER ACCOUNT</h2>
+<hr id="main-hr" />
+
+<div class="row">
+    @if (ViewBag.ErrorMessage != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Error!</strong> @ViewBag.ErrorMessage
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+                <form method="post" asp-action="Login" asp-controller="ClientHome">
+                    <div class="form-group mb-3">
+                        <label for="email">Email</label>
+                        <input asp-for="UserEmail" class="form-control w-50" tabindex="1" required autofocus>
+                        <div class="invalid-feedback">
+                            Please fill in your email
+                        </div>
+                    </div>
+                    <div class="form-group mb-3">
+                        <input asp-for="UserPassword" class="form-control w-50" tabindex="2" required>
+                        <div class="invalid-feedback">
+                            please fill in your password
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success " tabindex="4">
+                            Login
+                        </button>
+                    </div>
+                </form>
+        <div class="mt-5 text-muted">
+            Don't have an account? <a asp-action="Register" asp-controller="Home">Create One</a>
+        </div>
+       
+    </div>

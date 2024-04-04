@@ -1,0 +1,52 @@
+﻿@model IEnumerable<PassengerDetail>
+@{
+    ViewData["Title"] = "PassengerDetails";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="section-header">
+    <h1>Passengers Details</h1>
+</div>
+
+<div class="section-body">
+    <table class="table-responsive table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>PNRNo</th>
+                <th>SeatNo</th>
+                <th>CoachNo</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>PhoneNo</th>
+                <th>CNIC</th>
+                <th>TotalPassng</th>
+                <th>DateOfTravel</th>
+                <th>Class</th>
+                <th>TrainName</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (PassengerDetail PD in Model)
+            {
+                <tr>
+                    <td>@PD.Id</td>
+                    <td>@PD.PNRNo</td>
+                    <td>@PD.SeatNo</td>
+                    <td>@PD.CoachNo</td>
+                    <td>@PD.Name</td>
+                    <td>@PD.Age</td>
+                    <td>@PD.Gender</td>
+                    <td>@PD.PhoneNo</td>
+                    <td>@PD.CNIC</td>
+                    <td>@PD.TotalPassenger</td>
+                    <td>@PD.DateOfTravel.ToString("yyyy-mm-dd")</td>
+                    <td>@PD.Class</td>
+                    <td>@PD.TrainName</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

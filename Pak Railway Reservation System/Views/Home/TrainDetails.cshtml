@@ -1,0 +1,45 @@
+﻿@model IEnumerable<TrainDetail>
+@{
+    ViewData["Title"] = "TrainDetails";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="section-header">
+    <h1>Train Details</h1>
+</div>
+
+<div class="section-body">
+    <table class="table-responsive table table-striped ">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>From</th>
+                <th>to</th>
+                <th>Time</th>
+                <th>Compartments</th>
+                <th>AC Lower</th>
+                <th>AC Business</th>
+                <th>Economy</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (TrainDetail TD in Model)
+            {
+                <tr>
+                    <td>@TD.TrainDetailId</td>
+                    <td>@TD.TrainName</td>
+                    <td>@TD.From</td>
+                    <td>@TD.To</td>
+                    <td>@TD.Departure.ToString("hh:mm:ss")</td>
+                    <td>@TD.Compartments</td>
+                    <td>@TD.ACLower</td>
+                    <td>@TD.ACBusiness</td>
+                    <td>@TD.Ecomomy</td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

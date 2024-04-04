@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Station>
+@{
+    ViewData["Title"] = "TrainStations";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="section-header">
+    <h1>Stations</h1>
+</div>
+
+<div class="section-body">
+    <table class="table-responsive table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Station Code</th>
+                <th>Division</th>
+                <th>Image</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Station station in Model)
+            {
+                <tr>
+                    <td>@station.StationId</td>
+                    <td>@station.StationName</td>
+                    <td>@station.StationCode</td>
+                    <td>@station.RailwayDivisionName</td>
+                    <td><img src="~/AdminLibs/Images/@station.StationImage" class="mb-3 mt-2" width="200px" height="100px"></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+

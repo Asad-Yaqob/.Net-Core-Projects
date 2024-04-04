@@ -1,0 +1,74 @@
+﻿@model Register
+@{
+    ViewData["Title"] = "MyProfile";
+    Layout = "~/Views/Shared/_ClientLayout.cshtml";
+}
+
+<h2> PROFILE</h2>
+<hr id="main-hr" />
+    <div class="row">
+    @*to show error message *@
+    @if (ViewBag.ErrorMessage != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Error!</strong> @ViewBag.ErrorMessage
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+    @if (TempData["Data"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>@TempData["Data"]!</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+        <!-- Column 1: Change Info -->
+    <div class="col-md-6 col-sm-6">
+        <h4>User Information</h4>
+                <form asp-action="UpdateClientInfo" method="post">
+                    <input type="hidden" asp-for="RegisterId" />
+                    <div class="mt-3">
+                        <label asp-for="UserName" class="form-label">Name</label>
+                        <input asp-for="UserName" class="form-control w-75"  required />
+                    </div>
+
+                    <div class="mt-3">
+                        <label asp-for="UserEmail" class="form-label">Email</label>
+                        <input asp-for="UserEmail" class="form-control w-75"  required />
+                    </div>
+                    <br>
+                    <button type="submit" class="btn btn-success ">Update Profile</button>
+                    <br>
+                </form>
+        </div>
+    <div class="col-md-6 col-sm-6 mt-5">
+        <h6 class="mt-3 d-inline-block">CNIC :</h6> <span class="d-inline-block ms-5">@Model.CNIC</span> <br />
+        <h6 class="mt-3 d-inline-block">Phone No :</h6> <span class="d-inline-block ms-3">@Model.PhoneNo</span> <br />
+        <h6 class="mt-3 d-inline-block">Gender :</h6>  <span class="d-inline-block ms-5">@Model.Gender</span> <br />
+        <h6 class="mt-3 d-inline-block"> Age :</h6> <span class="d-inline-block ms-5"> &nbsp; &nbsp; &nbsp;  @Model.Age</span>
+     </div>
+
+    <!-- Column 3: Change Image -->
+    <div class="col-md-8 col-sm-8 mt-5">
+        <h4>Change Image</h4>
+            <form asp-action="UpdateClientImage" method="post" enctype="multipart/form-data">
+                <input type="hidden" asp-for="RegisterId" />
+                <div class="mt-3">
+                    <label asp-for="UserImage" class="form-label">New Image</label>
+                    <input type="file" asp-for="UserImage" class="form-control w-75" required />
+                </div>
+                <br>
+                <button type="submit" class="btn btn-success mt-3">Change Image</button>
+            </form>
+        </div>
+
+        <div class="col-md-4 col-sm-4 mt-5">
+        <img class="rounded-circle w-75 h-75 " src="~/Images/@Model.UserImage" />
+        </div>
+     </div>
+
+
+
+  
+
+   

@@ -1,0 +1,58 @@
+﻿@model List<PassengerDetail>
+@{
+    Layout = "~/Views/Shared/_ClientLayout.cshtml";
+}
+<h2> YOUR BOOKINGS</h2>
+<hr id="main-hr" />
+
+@*to show error message *@
+@if (ViewBag.ErrorMessage != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Error!</strong> @ViewBag.ErrorMessage
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+@if (Model != null && Model.Any())
+{
+    <table class="table-responsive table table-striped">
+        <thead class="bg-success text-white">
+            <tr>
+                <th>PNR No</th>
+                <th>Seat No</th>
+                <th>Coach No</th>
+                <th>Name</th>
+                <th>TrainName</th>
+                <th>Class</th>
+                <th>From</th>
+                <th>To</th>
+                <th>TotalPass</th>
+                <th>DOT</th>
+                <th>Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (PassengerDetail pD in Model)
+            {
+                <tr>
+                    <td>@pD.PNRNo</td>
+                    <td>@pD.SeatNo</td>
+                    <td>@pD.CoachNo</td>
+                    <td>@pD.Name</td>
+                    <td>@pD.TrainName</td>
+                    <td>@pD.Class</td>
+                    <td>@pD.From</td>
+                    <td>@pD.To</td>
+                    <td>@pD.TotalPassenger</td>
+                    <td>@pD.DateOfTravel.ToString("yyyy-mm-dd")</td>
+                    <td>@pD.Time.ToString("hh:mm:ss")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <p>Change your mind? dont worry you can cancel your ticket. &nbsp;<a asp-action="CancelTicket" asp-controller="SearchTrains" class="text-success">click here</a></p>
+}
+else
+{
+    <div class="text-success">You havent Book any ticket.</div>
+}

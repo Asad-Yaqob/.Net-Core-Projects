@@ -1,0 +1,139 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Pak_Railway_Reservation_System
+build_property.RootNamespace = Pak_Railway_Reservation_System
+build_property.ProjectDir = C:\Users\muham\source\repos\Pak Railway Reservation System\Pak Railway Reservation System\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\muham\source\repos\Pak Railway Reservation System\Pak Railway Reservation System
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/muham/source/repos/Pak Railway Reservation System/Pak Railway Reservation System/Views/Auth/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/muham/source/repos/Pak Railway Reservation System/Pak Railway Reservation System/Views/Auth/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/muham/source/repos/Pak Railway Reservation System/Pak Railway Reservation System/Views/ClientHome/AboutUs.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50SG9tZVxBYm91dFVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/muham/source/repos/Pak Railway Reservation System/Pak Railway Reservation System/Views/ClientHome/BookTicket.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50SG9tZVxCb29rVGlja2V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/muham/source/repos/Pak Railway Reservation System/Pak Railway Reservation System/Views/ClientHome/CalculateFare.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50SG9tZVxDYWxjdWxhdGVGYXJlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/muham/source/repos/Pak Railway Reservation System/Pak Railway Reservation System/Views/ClientHome/Contact.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50SG9tZVxDb250YWN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/muham/source/repos/Pak Railway Reservation System/Pak Railway Reservation System/Views/ClientHome/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50SG9tZVxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/muham/source/repos/Pak Railway Reservation System/Pak Railway Reservation System/Views/ClientHome/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50SG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/muham/source/repos/Pak Railway Reservation System/Pak Railway Reservation System/Views/ClientHome/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50SG9tZVxSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/muham/source/repos/Pak Railway Reservation System/Pak Railway Reservation System/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/muham/source/repos/Pak Railway Reservation System/Pak Railway Reservation System/Views/Home/PassengerDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQYXNzZW5nZXJEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/muham/source/repos/Pak Railway Reservation System/Pak Railway Reservation System/Views/Home/TrainDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxUcmFpbkRldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/muham/source/repos/Pak Railway Reservation System/Pak Railway Reservation System/Views/Home/TrainStations.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxUcmFpblN0YXRpb25zLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/muham/source/repos/Pak Railway Reservation System/Pak Railway Reservation System/Views/Profile/ChangePassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxDaGFuZ2VQYXNzd29yZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/muham/source/repos/Pak Railway Reservation System/Pak Railway Reservation System/Views/Profile/MyProfile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxNeVByb2ZpbGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/muham/source/repos/Pak Railway Reservation System/Pak Railway Reservation System/Views/Profile/YourBooking.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxZb3VyQm9va2luZy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/muham/source/repos/Pak Railway Reservation System/Pak Railway Reservation System/Views/SearchTrains/CancelTicket.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VhcmNoVHJhaW5zXENhbmNlbFRpY2tldC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/muham/source/repos/Pak Railway Reservation System/Pak Railway Reservation System/Views/SearchTrains/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VhcmNoVHJhaW5zXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/muham/source/repos/Pak Railway Reservation System/Pak Railway Reservation System/Views/SearchTrains/SearchTrains.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VhcmNoVHJhaW5zXFNlYXJjaFRyYWlucy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/muham/source/repos/Pak Railway Reservation System/Pak Railway Reservation System/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/muham/source/repos/Pak Railway Reservation System/Pak Railway Reservation System/Views/Shared/_ClientLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9DbGllbnRMYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/muham/source/repos/Pak Railway Reservation System/Pak Railway Reservation System/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/muham/source/repos/Pak Railway Reservation System/Pak Railway Reservation System/Views/TrainFare/EditTrainFares.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhaW5GYXJlXEVkaXRUcmFpbkZhcmVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/muham/source/repos/Pak Railway Reservation System/Pak Railway Reservation System/Views/TrainFare/TrainFares.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhaW5GYXJlXFRyYWluRmFyZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/muham/source/repos/Pak Railway Reservation System/Pak Railway Reservation System/Views/TrainSchedule/AddTrainSchedules.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhaW5TY2hlZHVsZVxBZGRUcmFpblNjaGVkdWxlcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/muham/source/repos/Pak Railway Reservation System/Pak Railway Reservation System/Views/TrainSchedule/EditTrainSchedule.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhaW5TY2hlZHVsZVxFZGl0VHJhaW5TY2hlZHVsZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/muham/source/repos/Pak Railway Reservation System/Pak Railway Reservation System/Views/TrainSchedule/TrainSchedules.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhaW5TY2hlZHVsZVxUcmFpblNjaGVkdWxlcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/muham/source/repos/Pak Railway Reservation System/Pak Railway Reservation System/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/muham/source/repos/Pak Railway Reservation System/Pak Railway Reservation System/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/muham/source/repos/Pak Railway Reservation System/Pak Railway Reservation System/Views/Shared/AdminLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEFkbWluTGF5b3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = b-k08gwh1mpe

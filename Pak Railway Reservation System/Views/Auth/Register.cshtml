@@ -1,0 +1,146 @@
+﻿@model Register
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+    <title>Register &mdash; CodiePie</title>
+
+    <!-- General CSS Files -->
+    <link rel="stylesheet" href="~/AdminLibs/assets/modules/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="AdminLibs/assets/modules/fontawesome/css/all.min.css">
+
+    <!-- CSS Libraries -->
+    <link rel="stylesheet" href="~/AdminLibs/assets/modules/jquery-selectric/selectric.css">
+
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="~/AdminLibs/assets/css/style.min.css">
+    <link rel="stylesheet" href="~/AdminLibs/assets/css/components.min.css">
+</head>
+<body>
+    <div class="section-body">
+        <div id="app">
+
+            <section class="section">
+                <div class="container mt-5">
+                     @if (ViewBag.ErrorMessage != null)
+                        {
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <strong>Error!</strong> @ViewBag.ErrorMessage
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        }
+                        @if (TempData["ErrorMessage"] != null)
+                        {
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <strong>Error!</strong> @TempData["ErrorMessage"]
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        }
+                    <div class="row">
+                       
+                        <div class="col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-8 offset-lg-2 col-xl-8 offset-xl-2">
+                            <div class="login-brand">
+                                <img src="~/AdminLibs/Images/Pak Rrs.png" alt="logo" width="100" class=" ">
+                            </div>
+                            <div class="card card-primary">
+                                <div class="card-header">
+                                    <h4>Register</h4>
+                                </div>
+                                <div class="card-body">
+                                    <form method="post" enctype="multipart/form-data">
+                                        <div class="row">
+                                            <div class="form-group col-12">
+                                                <label asp-for="UserName"></label>
+                                                <input asp-for="UserName" class="form-control">
+                                                <span class="text-danger" asp-validation-for="UserName"></span>
+                                            </div>
+                                            <div class="form-group col-12">
+                                                <label asp-for="UserEmail"></label>
+                                                <input asp-for="UserEmail" class="form-control">
+                                                <span class="text-danger" asp-validation-for="UserEmail"></span>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group col-6 ">
+                                                <label asp-for="Age"></label>
+                                                <input asp-for="Age" class="form-control">
+                                                <span class="text-danger" asp-validation-for="Age"></span>
+                                            </div>
+                                            <div class="form-group col-6">
+                                                <label asp-for="Gender"></label>
+                                                <input asp-for="Gender" class="form-control">
+                                                <span class="text-danger" asp-validation-for="Gender"></span>
+                                            </div>
+                                        </div>
+
+                                                                                <div class="row">
+                                            <div class="form-group col-6 ">
+                                                <label asp-for="PhoneNo"></label>
+                                                <input asp-for="PhoneNo" class="form-control">
+                                                <span class="text-danger" asp-validation-for="PhoneNo"></span>
+                                            </div>
+                                            <div class="form-group col-6">
+                                                <label asp-for="CNIC"></label>
+                                                <input asp-for="CNIC" class="form-control">
+                                                <span class="text-danger" asp-validation-for="CNIC"></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="form-group col-6 ">
+                                                <label asp-for="UserPassword"></label>
+                                                <input asp-for="UserPassword" class="form-control">
+                                                <span class="text-danger" asp-validation-for="UserPassword"></span>
+                                            </div>
+                                            <div class="form-group col-6">
+                                                <label asp-for="UserConfirmPassword"></label>
+                                                <input asp-for="UserConfirmPassword" class="form-control">
+                                                <span class="text-danger" asp-validation-for="UserConfirmPassword"></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" name="agree" class="custom-control-input" id="agree">
+                                                <label class="custom-control-label" for="agree">I agree with the terms and conditions</label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-12">
+                                            <button type="submit" class="btn btn-primary btn-lg btn-block">Register</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="simple-footer">
+                                Copyright &copy; CodiePie 2020
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+   
+
+    <!-- General JS Scripts -->
+    <script src="~/AdminLibs/assets/bundles/lib.vendor.bundle.js"></script>
+    <script src="~/AdminLibs/js/CodiePie.js"></script>
+
+    <!-- JS Libraies -->
+    <script src="~/AdminLibs/assets/modules/jquery-pwstrength/jquery.pwstrength.min.js"></script>
+    <script src="~/AdminLibs/assets/modules/jquery-selectric/jquery.selectric.min.js"></script>
+
+    <!-- Page Specific JS File -->
+    <script src="~/AdminLibs/js/page/auth-register.js"></script>
+
+    <!-- Template JS File -->
+    <script src="~/AdminLibs/js/scripts.js"></script>
+    <script src="~/AdminLibs/js/custom.js"></script>
+</body>
+</html>
